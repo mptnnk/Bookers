@@ -6,12 +6,13 @@ class BooksController < ApplicationController
   end
   
   def create #保存機能（投稿が成功したら投稿したidの詳細ページへ、失敗したら投稿フォームにエラーを出す）
-   book = Book.new(book_params)
-   book.save
-   redirect_to '/books/:id'
+   @book = Book.new(book_params)
+   @book.save
+   redirect_to book_path(@book.id)
   end
 
   def show #詳細ページ
+   @book = Book.find(params[:id])
   end
 
   def edit #編集ページ
