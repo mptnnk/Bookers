@@ -3,14 +3,31 @@
 <table>
  <thread>
   <tr>
-   <th>title</th>
-   <th>body</th>
+   <th>Title</th>
+   <th>Body</th>
    <th colspan="3"></th>
   </tr>
  </thread>
- <body>
- </body>
+ <tbody>
+  <% @books.each do |f|%>
+  <td><%= f.title %></td>
+ <!--タイトルを表示させる、id番号で呼び出す-->
+  <td><%= f.body %></td>
+  <!--ボディを表示させる、id番号で呼び出す-->
+  <!--show edit destroyのリンクを貼る-->
+  <% end %>
+ </tbody>
 </table>
+
+
+<% if @book.errors.any? %>
+ <%= @book.errors.count %>error prohibited this book from being saved:
+ <ul>
+   <% @book.errors.full_messages.each do |message|%>
+    <li><%= message %></li>
+   <% end %>
+ </ul>
+<% end %>
 
 <%= form_with model:@book do |f|%>
  <h2>New Book</h2>
