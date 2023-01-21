@@ -1,3 +1,4 @@
+
 <h1>Books</h1>
 
 <table>
@@ -23,19 +24,22 @@
 
 
 <% if @book.errors.any? %>
- <%= @book.errors.count %>error prohibited this book from being saved:
+<div id="error_explanation">
+ <h2><%= @book.errors.count %>error prohibited this book from being saved:</h2>
  <ul>
    <% @book.errors.full_messages.each do |message|%>
     <li><%= message %></li>
    <% end %>
  </ul>
+</div>
 <% end %>
+
 
 <%= form_with model:@book do |f|%>
  <h2>New Book</h2>
  <p>Title</p>
- <%= f.text_field :title %>
+ <div class="new-title"><%= f.text_field :title %></div>
  <p>Body</p>
- <%= f.text_area :body %>
- </br><%= f.submit'Create Book'%>
+ <div class="new-body"><%= f.text_area :body %></div>
+ <div class="create-book"><%= f.submit'Create Book'%></div>
 <% end %>
