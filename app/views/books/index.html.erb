@@ -1,20 +1,22 @@
 <h1>Books</h1>
 
 <table>
- <thread>
+ <thead>
   <tr>
    <th>Title</th>
    <th>Body</th>
    <th colspan="3"></th>
   </tr>
- </thread>
+ </thead>
  <tbody>
   <% @books.each do |f|%>
-  <td><%= f.title %></td>
- <!--タイトルを表示させる、id番号で呼び出す-->
-  <td><%= f.body %></td>
-  <!--ボディを表示させる、id番号で呼び出す-->
-  <!--show edit destroyのリンクを貼る-->
+  <tr>
+   <td><%= f.title %></td>
+   <td><%= f.body %></td>
+   <td><%= link_to"show",book_path(f.id)%></td>
+   <td><%= link_to"Edit",edit_book_path(f.id)%></td>
+   <td><%= link_to"Destroy",book_path(f.id),method: :delete,"data-confirm"=>"Are you sure?"%></td>
+  </tr>
   <% end %>
  </tbody>
 </table>

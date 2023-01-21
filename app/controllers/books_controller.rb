@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def index #投稿一覧と新規投稿
    @books = Book.all
+   @books = Book.all.order(created_at: :desc)
    @book = Book.new
   end
   
@@ -25,13 +26,12 @@ class BooksController < ApplicationController
   def update
    @book = Book.find(params[:id])
    if @book.update(book_params)
-    redirect_to book_path(book.id)
+    redirect_to book_path(@book.id)
    else
     render :index
    end
   end
 
-  
   def destroy
    @book = Book.find(params[:id])
    @book.destroy
