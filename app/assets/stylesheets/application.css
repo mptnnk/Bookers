@@ -84,3 +84,27 @@ td{
   background-color:red;
   color:white;
 }
+
+.create_area p{
+  margin-bottom:0;
+}
+
+.create_book{
+  margin-top:10px;
+}
+
+.show_book p{
+  margin-left:33px;
+}
+
+.show_content{
+  margin-bottom:33px;
+}
+
+.edit_area p{
+  margin-bottom:0;
+}
+
+.edit_body,.edit_book{
+  margin-bottom:10px;
+}

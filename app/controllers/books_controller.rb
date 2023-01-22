@@ -2,7 +2,6 @@ class BooksController < ApplicationController
 
   def index #投稿一覧と新規投稿
    @books = Book.all
-   @books = Book.all.order(created_at: :desc)
    @book = Book.new
   end
   
